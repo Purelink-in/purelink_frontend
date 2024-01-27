@@ -1,0 +1,396 @@
+@font-face {
+    font-family: 'inter-black';
+    src: url(./../assets/font/static/Inter-Black.ttf);
+}
+@font-face {
+    font-family: 'inter-bold';
+    src: url(./../assets/font/static/Inter-Bold.ttf);
+}
+@font-face {
+    font-family: 'inter-extra-bold';
+    src: url(./../assets/font/static/Inter-ExtraBold.ttf);
+}
+@font-face {
+    font-family: 'inter-extra-light';
+    src: url(./../assets/font/static/Inter-ExtraLight.ttf);
+}
+@font-face {
+    font-family: 'inter-light';
+    src: url(./../assets/font/static/Inter-Light.ttf);
+}
+@font-face {
+    font-family: 'inter-medium';
+    src: url(./../assets/font/static/Inter-Medium.ttf);
+}
+@font-face {
+    font-family: 'inter-regular';
+    src: url(./../assets/font/static/Inter-Regular.ttf);
+}
+@font-face {
+    font-family: 'inter-semi-bold';
+    src: url(./../assets/font/static/Inter-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'inter-thin';
+    src: url(./../assets/font/static/Inter-Thin.ttf);
+}
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+:root{
+    --bg--: #5e3fe3;
+    --bg2--: #f1f1f1;
+    --h1--: #000;
+    --p--: #5B5B5B;
+}
+ul,ol{
+    list-style: none;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*-------------------------- (#form)----------------------------- */
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+#form{
+    position: relative;
+}
+#form section.wrapper{
+    padding: 0px 70px;
+    padding-left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form section.wrapper.pl-0{
+    padding-right: 0;
+    padding-bottom: 10px;
+}
+#form section.wrapper.sign-up{
+    flex-direction: row-reverse;
+    padding-left: 70px;
+    padding-right: 0;
+}
+#form section.wrapper.log-in{
+    padding: 0;
+}
+#form section.wrapper.log-in .right{
+    width: 30%;
+}
+#form div.top h1{
+    margin-top: 10px;
+    font-family: 'inter-bold';
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 22px;
+}
+#form div.top h1 span{
+    color: #5e3fe3;
+    font-family: 'inter-bold';
+}
+#form section.wrapper div.left{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+#form section.wrapper div.left img{
+    animation: rotate linear 2s infinite;
+    width: 50%;
+}
+#form section.wrapper div.left h1{
+    font-family: 'inter-bold';
+    font-size: 50px;
+    text-align: center;
+}
+#form section.wrapper div.left h1 span{
+    color: #5e3fe3;
+}
+#form section.wrapper div.right{
+   background: #bfb2f4;
+   border-radius: 10px;
+   width: 50%;
+   padding: 70px 30px 40px;
+}
+#form section.wrapper div.right img {
+    position: absolute;
+    top: 40px;
+    right: 75px;
+}
+#form section.wrapper.sign-up div.right img{
+    left: 80px;
+    top: 40px;
+} 
+#form section.wrapper div.right .form{
+    display: flex;
+    justify-content: space-between;
+}
+#form section.wrapper div.right .form .form-field{
+    width: 50%;
+}
+#form section.wrapper div.right .form .form-field:first-child{
+    margin-right: 50px;
+}
+#form section.wrapper div.right .form .form-field.log-in{
+    width: 100%;
+    margin-right: 0;
+}
+#form section.wrapper div.right input{
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    background: none;
+    color: #000;
+    padding-left: 15px;
+    border: 1px solid #5e3fe3;
+    border-radius : 30px; 
+    margin-bottom: 30px;
+}
+#form section.wrapper div.right input::placeholder{
+    color: #434343;
+}
+#form section.wrapper div.right input:focus{
+    outline: none;
+}
+#form section.wrapper div.right input#name{
+}
+#form section.wrapper div.right input#age{
+}
+#form section.wrapper div.right select{
+    padding: 15px 0;
+    padding-left: 15px;
+    width: 60%;
+    background: none;
+    color: #000;
+    border: 1px solid #5e3fe3;
+    border-radius : 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+#form section.wrapper.sign-up div.right select{
+    width: 100%;
+}
+#form section.wrapper div.right select:focus{
+    outline: none;
+}
+#form section.wrapper div.right select option{
+    color: #2f00ff;
+}
+#form section.wrapper div.right select#group{
+    
+}
+#form section.wrapper div.right select#unit{
+}
+#form section.wrapper div.right input#tel{
+}
+#form section.wrapper div.right input#hos{
+}
+#form section.wrapper div.right .bottom{
+    text-align: center;
+}
+#form section.wrapper.sign-up div.right .bottom{
+    display: flex;
+    flex-direction: column;
+}
+#form section.wrapper.sign-up div.right .bottom button{
+    padding: 15px 0;
+    font-family: 'inter-regular';
+    font-size: 20px;
+    background: var(--bg--);
+    color: #fff;
+    border: 1px solid var(--bg--);
+    border-radius: 30px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+#form section.wrapper.sign-up div.right .bottom button:hover{
+    background: #fff;
+    color: #000;
+    transition: all 0.3s ease-in-out;
+}
+#form section.wrapper div.right .bottom a{
+    font-family: 'inter-regular';
+    font-size: 18px;
+    color: #000AFF;
+}
+#form section.wrapper div.right .bottom button{
+    display: block;
+    background: var(--bg--);
+    border: 1px solid #5e3fe3;
+    padding: 15px;
+    width: 100%;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+#form section.wrapper div.right .bottom button a{
+    font-family: 'inter-medium';
+    font-size: 20px;
+    color: #fff;
+}
+#form section.wrapper div.right .bottom button:hover{
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+}
+#form section.wrapper div.right .bottom button:hover a{
+    color: var(--bg--);
+}
+
+#form section.wrapper{
+}
+#form section.wrapper div.right.w-100{
+    width: 100%;
+}
+#form div.top h1.tal{
+    text-align: left;
+    margin-bottom: 20px;
+}
+#form section.wrapper div.right img.r-30{
+    right: 30px;
+}
+#want_blood{
+    position: relative;
+    background: #bfb2f4;
+    border-radius: 10px;
+    width: 100%;
+    padding: 70px 30px 40px;
+    
+}
+#want_blood.sign-up{
+    padding: 0;
+}
+#want_blood.sign-up .form-field-main{
+    display: flex;
+}
+#want_blood.sign-up .form-field{
+    width: 50%;
+}
+#want_blood.sign-up .form-field:first-child{
+    margin-right: 30px;
+}
+#want_blood input{
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    background: none;
+    color: #000;
+    padding-left: 15px;
+    border: 1px solid #5e3fe3;
+    border-radius : 30px; 
+    margin-bottom: 30px;
+}
+#want_blood label{
+    display: flex;
+    flex-direction: column;
+    font-family: 'inter-medium';
+    font-size: 15px;
+    text-align: start;
+}
+#want_blood label.tattoo{
+    width: 70%;
+    margin-right: 10px;
+}
+#want_blood label input{
+    margin-top: 10px;
+}
+#want_blood label select{
+    margin-top: 10px;
+}
+#name{
+    margin-right: 50px;
+}
+div.selectors{
+    display: flex;
+}
+.doubleflex {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media all and (max-width: 980px) {
+    #form section.wrapper{
+        padding: 0 70px !important;
+    }
+    #form section.wrapper{
+        flex-direction: column-reverse !important;
+    }
+    #form section.wrapper div.left{
+        width: 100% !important;
+    }
+    #form section.wrapper div.right{
+        width: 100% !important;
+    }
+}
+@media all and (max-width: 768px) {
+    
+}
+@media all and (max-width: 640px) {
+    #want_blood.sign-up .form-field-main{
+        flex-wrap: wrap;
+    }
+    .form-field{
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+    #form section.wrapper.sign-up div.right img {
+        left: 80px;
+        top: 60px;
+        width: 125px;
+    }
+    #form section.wrapper div.left h1{
+        font-size: 35px;
+    }
+    .doubleflex{
+        flex-wrap: wrap;
+    }
+    #form section.wrapper div.right img {
+        top: 60px;
+        right: 75px;
+        width: 125px;
+    }
+}
+@media all and (max-width: 480px) {
+    #form section.wrapper{
+        padding: 15px !important;
+    }
+    #form section.wrapper.sign-up div.right img {
+        left: 30px;
+        top: 75px;
+    }
+    #form section.wrapper div.right img {
+        right: 30px;
+        top: 75px;
+    }
+}
+@media all and (max-width: 360px) {
+    
+}
+@media all and (max-width: 320px) {
+    
+}
