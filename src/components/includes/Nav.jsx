@@ -1,7 +1,7 @@
 import React, { useEffect , useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import './../screens/Dashboard.css';
-import { useGlobalState } from '../GlobalContext';
+import { useGlobalState , GlobalStateProvider} from '../GlobalContext';
 export default function Nav() {
   
     
@@ -37,12 +37,13 @@ export default function Nav() {
     localStorage.removeItem('bloodGroup');
     localStorage.removeItem('phoneNo');
     localStorage.removeItem('name');
-    setLoggedIn(false); // Assuming setLoggedIn is defined in the context
-    setError(null); // Assuming setError is defined in the context
+    setLoggedIn(false); 
+    setError(null); 
   };
 
   return (
     <>
+    <GlobalStateProvider>
       <div className='aside mb-active'>
         <h1 className='img'>
           <img src={require("./../assets/main-page-images/hero/pureLink.svg").default} alt="images" />
@@ -84,31 +85,31 @@ export default function Nav() {
             <li>
               <NavLink className={({isActive}) => isActive ? "active" : ""} to='../dashboard/notification'>
                 <img src={require("./../assets/images/dhash-nav/notification.png")} alt="" />
-                <p>Notification</p>
+       
               </NavLink>
             </li>
             <li>
               <NavLink className={({isActive}) => isActive ? "active" : ""} to='../../want-blood'>
                 <img src={require("./../assets/images/dhash-nav/blood.png")} alt="" />
-                <p>Want Blood</p> 
+          
               </NavLink>
             </li>
             <li>
               <NavLink className={({isActive}) => isActive ? "active" : ""} to='../../dashboard/dash'>
-                <img src={require("./../assets/images/dhash-nav/dash-logo.png")} className='dash' alt="" />
-                <img src={require("./../assets/images/dhash-nav/mobile-dash-circile.svg").default} className='circle' alt="" />
-                <p className='dash'><span className='color'>Dash</span>board</p>
+                <img src={require("./../assets/images/dhash-nav/dash-logo.png")} className='' alt="" />
+                
               </NavLink>
             </li>
             <li>
               <NavLink onClick={handleLogout} className="log-out mobilelog" to=''>
                 <img src={require("./../assets/images/dhash-nav/log-out.svg").default} alt="" />
-                <p>Log Out</p>
+            
               </NavLink>
             </li>
           </ul>
         </nav>
       </div>
+      </GlobalStateProvider>
     </>
   )
 }

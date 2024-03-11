@@ -148,23 +148,23 @@ span.color{
     transition: all 0.3 ease-in-out;
 }
 
-.container{
+.container-two{
     
 }
-.container h1.top {
+.container-two h1.top {
     font-family: 'inter-bold';
     font-size: 40px;
     margin-bottom: 10px;
     color: #000;
  }
- .container h1.top .blue {
+ .container-two h1.top .blue {
     font-family: 'inter-bold';
     font-size: 40px;
     margin-bottom: 10px;
     color: #000;
     display: inline;
     }  
-.container .counts {
+.container-two .counts {
     margin-top:5%;
     margin-bottom:3%;
     border-radius: 15px;
@@ -172,26 +172,26 @@ span.color{
     padding-right: 55px;
     background: #5E3FE3;
     }
-.container .counts ul{
+.container-two .counts ul{
     display: flex;
     justify-content: space-around;
 }
-.container .counts ul li{
+.container-two .counts ul li{
     text-align: center;
 }
-.container .counts ul li h1{
+.container-two .counts ul li h1{
     margin-top:40px;
     font-family: 'inter-bold';
     font-size: 50px;
     margin-bottom: 80px;
     color:#fff;
 }
-.container .counts ul li h4{
+.container-two .counts ul li h4{
     font-family: 'inter-bold';
     font-size: 20px;
     color: #fff;
 }
-.container .counts ul li:first-child h4{
+.container-two .counts ul li:first-child h4{
     margin-left: -20px;
 }
  .noti{
@@ -447,6 +447,8 @@ span.color{
     height: 50px;
     background: var(--bg--);
     border-radius: 50px;
+    font-size: 25px;
+    color: #fff;
  }
 .over{
     display: none;
@@ -476,6 +478,8 @@ span.color{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top:10px;
+    padding-bottom: 10px;
 }
 .mb-bottom-aside nav ul li{
     margin-right: 20px;
@@ -495,7 +499,7 @@ span.color{
 }
 .mb-bottom-aside nav ul li a img.dash{
     z-index: 1;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     height: 100%;
     width: 50px;
 }
@@ -520,7 +524,7 @@ span.color{
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 40px 30px 10px;
+    padding: 30px 30px 10px;
     background: #FFF;
     box-shadow: 0px 4px 5px -4px rgba(0, 0, 0, 0.25);
     display: none;
@@ -528,14 +532,14 @@ span.color{
 .mb-top-header ul{
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
 }
 .mb-top-header ul li{
 
 }
 .mb-top-header ul li h1{
     display: inline-block;
-    width: 155px;
+    width: 115px;
     padding: 0;
 }
 .mb-top-header ul li h1 img{
@@ -547,6 +551,11 @@ span.color{
     background: var(--bg--);
     border-radius: 50px;
     cursor: pointer;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    color: #fff;
 }
 
  @media all and (max-width: 1280px) {
@@ -560,8 +569,13 @@ span.color{
     }
     .jlchIX{
     }
+    .iIMQju{
+        padding-top: 120px !important;
+    }
     .mb-circle{
-        display: block;
+        display: grid;
+        text-align: center;
+        align-items: center;
     }
     .profile.active{
         right: 0;
@@ -573,7 +587,7 @@ span.color{
         display: block;
         transition: all 0.5s ease-in-out;
     }
-    .container {
+    .container-two {
         width: 104% !important;
         position: relative;
 
@@ -584,7 +598,7 @@ span.color{
         padding: 0 !important;
         width: 120%;
     }
-    .container .counts{
+    .container-two .counts{
         padding-right: 0;
         width: 100%;
         position: relative;
@@ -611,47 +625,150 @@ span.color{
     .mb-top-header{
         display: block;
     }
-    .container .counts {
+    .container-two .counts {
         height: 150px;
     }
-    .container .counts ul li h1{
+    .container-two .counts ul li h1{
         font-size: 30px;
         margin-bottom: 0;
     }
-    .container .counts ul li h4{
+    .container-two .counts ul li h4{
         font-size: 14px;
         margin-top: 10px;
     }
-    .container .noti div.content {
+    .container-two .noti div.content {
         display: flex;
         justify-content: space-between;
     }
-    .container .noti div.content p {
+    .container-two .noti div.content p {
         font-size: 15px;
         max-width: 270px;
     }
-    .container .noti div.content p span {
+    .container-two .noti div.content p span {
         font-size: 15px;
     }
     .mb-bottom-aside nav ul li a p{
-        font-size: 9px;
+        font-size: 9px !important;
+    }
+        .jlchIX{
+        padding-top: 27% !important;
+    }
+    .container-two .counts ul li h1{
+        font-size: 35px;
+    }
+    .container-two .counts ul li h4{
+        font-size: 17px;
+    }
+    .container-two .noti div.content p {
+        max-width: 200px;
+        font-size: 12px;
+    }
+    .container-two .noti div.content span {
+        font-size: 12px;
+    }
+    .mb-top-header nav ul {
+        margin-top: 0 !important;
+    }
+    .mb-bottom-aside nav ul li a p{
+        font-size: 9px !important;
+    }
+    .mb-bottom-aside nav ul li h1 img {
+        height: 10px;
+    }
+    div.mb-top-circle {
+        height: 10px;
+        margin-bottom: 10px;
+    }
+    div.container-two h1.top {
+        margin-left: 0px;
+        font-size: 25px;
+        margin-top: 20px;
+
+    }
+    div.noti div.content p {
+        font-size: 16px ;
+    }
+    div.sc-guDLey {
+        padding-left: 10px;
+        width: 83%;
+    }
+    div.noti h1.top {
+        font-size: 25px;
+        margin-left: 0px;
+    }
+     div.noti h1.top img {
+        display:none;
+    }
+     div.noti h1.top span {
+        font-size: 25px;
     }
  }
  @media all and (max-width: 640px) {
+
     .jlchIX{
         padding-top: 27% !important;
     }
-    .container .counts ul li h1{
+    .container-two .counts ul li h1{
         font-size: 35px;
     }
-    .container .counts ul li h4{
+    .container-two .counts ul li h4{
         font-size: 17px;
     }
-    .mb-bottom-aside nav ul li a p{
-        font-size: 9px;
+    .container-two .noti div.content p {
+        max-width: 200px;
+        font-size: 12px;
     }
+    .container-two .noti div.content span {
+        font-size: 12px;
+    }
+    .mb-top-header nav ul {
+        margin-top: 0 !important;
+    }
+    .mb-bottom-aside nav ul li a p{
+        font-size: 9px !important;
+    }
+    .mb-bottom-aside nav ul li h1 img {
+        height: 10px;
+    }
+    div.mb-top-circle {
+        height: 10px;
+        margin-bottom: 10px;
+    }
+    div.container-two h1.top {
+        margin-left: 0px;
+        font-size: 25px;
+        margin-top: 20px;
+
+    }
+    div.noti h1.top {
+        font-size: 25px;
+        margin-left: 0px;
+    }
+     div.noti h1.top img {
+        display:none;
+    }
+     div.noti h1.top span {
+        font-size: 25px;
+    }
+    div.noti .content ul li  {
+        display: none;
+    }
+    div.counts ul {
+        justify-content: space-between;
+    }
+    div.counts ul li h1 {
+        font-size: 15px !important;
+
+    }
+    div.counts ul li h4 {
+        font-size: 15px !important;
+    }
+
  }
  @media all and (max-width: 480px) {
+    div.sc-guDLey {
+        width: 75%;
+    }
     .mb-bottom-aside{
         padding: 0 15px 5px;
     }
@@ -660,30 +777,118 @@ span.color{
         height: 35px;
     }
     .mb-bottom-aside nav ul li a p{
-        font-size: 5px;
+        font-size: 6px !important;
     }
     .mb-bottom-aside nav ul li a img.circle{
         left: 0;
         height: 55px;
     }
     .mb-bottom-aside nav ul li a img.dash{
-        width: 40px;
+        width: 30px;
     }
     .jlchIX{
         padding-top: 35% !important;
         padding-bottom: 27% !important;
     }
-    .container .counts ul li h1{
+    div.noti div.content button {
+        font-size: 10px;
+        padding: 8px 8px 5px 5px;
+    }
+    .noti {
+        margin-left: 25px;
+    }
+    .noti  .content {
+        font-size: 12px;
+        width: 88%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .profile.active {
+        width: 300px;
+    }
+    .noti  .content p  {
+        margin-right: 10px !important;
+        max-width: 100px;
+        margin-right: -20px !important;
+        font-size: 12px !important;
+    }
+    .noti  .content p span {
+        font-size: 12px !important;
+    }
+    .noti  .content ul li button {
+        font-size: 12px !important;
+    }
+    .noti .top img {
+        height: 50px;
+    }
+    .noti .top span {
+        font-size: 20px;
+    }
+    .noti .content {
+        padding: 15px;
+    }
+    .container-two h1.top {
+        margin-left: 20px !important;
+    }
+    .noti h1.top {
+        margin-left: 0px !important;
+    }
+    .container-two .counts ul li h1{
+        font-size: 15px;
+        margin-right: 0;
+        margin-left: 20px;
+    }
+    .container-two .counts ul li h4{
+        font-size: 15px;
+        margin-left: 25px;
+    }
+    .container-two .counts{
+        padding: 3px !important;
+        margin-left: 6%;
+        width: 80%;
+    }
+    .now {
+        margin-left: 25px !important;
+    }
+    .iIMQju {
+        padding-left: 0 !important;
+    }
+    .cvTYNY {
+        display: flex;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 150%;
+    }
+     div.noti h1.top span {
         font-size: 25px;
     }
-    .container .counts ul li h4{
-        font-size: 16px;
+    div.counts ul {
+        justify-content: space-between;
     }
-    .container .counts{
-        padding-right: 10px;
+    div.counts ul li h1 {
+        font-size: 20px !important;
+
+    }
+    div.counts ul li h4 {
+        font-size: 15px !important;
     }
  }
- @media all and (max-width: 360px) {
+ @media all and (max-width: 370px) {
+
+    div.counts ul {
+        margin-bottom: 50% !important;
+        padding-bottom: 100px !important;
+    }
+    div.counts ul li {
+        align-items: center;
+        padding-bottom: 20px !important;
+    }
+    div.counts ul li h1 {
+        font-size: 13px !important; 
+    }
+    div.counts ul li h4 {
+        font-size: 10px !important; 
+    }
     
  }
  @media all and (max-width: 320px) {
@@ -694,7 +899,13 @@ span.color{
     padding-top: 20% !important;
     padding-bottom: 18% !important;
 }
-
+@media all and (max-width:290px) {
+    .mb-top-header ul li h1 img {
+        height:40px;
+        margin-left:0px;
+        margin-top:10px; 
+    }
+}
 @media all and (max-width: 980px) {
     .jlchIX {
         padding-left: 10px !important; /* Adjust as needed */

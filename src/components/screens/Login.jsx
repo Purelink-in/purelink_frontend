@@ -25,7 +25,7 @@ const Login = () => {
         }
     
         try {
-            const response = await axios.post('http://localhost:8000/login/', { phone_no: phoneNo, password });
+            const response = await axios.post('https://api.purelink.in/login/', { phone_no: phoneNo, password });
             const { token, name, phone, district, blood_group } = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('name', name);
@@ -47,7 +47,7 @@ const Login = () => {
     const handleLogout = () => {
       localStorage.removeItem('token');
       localStorage.removeItem('token');
-      localStorage.removeItem('district');
+      localStorage.removeItem('districtId');
       localStorage.removeItem('bloodGroup');
       localStorage.removeItem('phoneNo');
       localStorage.removeItem('name');
@@ -63,27 +63,41 @@ const Login = () => {
             <Navigate to="/dashboard/dash" replace="True"/>
           </div>
           ) : (
-            <section id="form">
-              <div className="top">
-                <h1><span>Log</span> In</h1>
-              </div>
-              <section className="wrapper log-in">
-                <div className="right">
-                  <form onSubmit={handleLogin}>
-                    <div className="form">
-                      <div className="form-field log-in">
-                        <input type="text" placeholder="Enter phone number" name="tel" onChange={(e) => setPhoneNo(e.target.value)}  id="tel" value={phoneNo}  required />
-                        <input type="password" placeholder="Password" name="Password" onChange={(e) => setPassword(e.target.value)}  value={password}  id="password" required />
-                      </div>
+            <div class="login-container">
+                <div class="screen">
+                    <div class="screen__content">
+                        <form class="login" onSubmit={handleLogin}>
+                            <div class="login__field">
+                                <i class="login__icon fas fa-user"></i>
+                                <input type="number" class="login__input" placeholder="Phone number"  onChange={(e) => {
+                                    if (e.target.value.length <= 10) {
+                                        setPhoneNo(e.target.value);
+                                    }
+                                }} value={phoneNo}/>
+                            </div>
+                            <div class="login__field">
+                                <i class="login__icon fas fa-lock"></i>
+                                <input type="password" class="login__input" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} value={password} />
+                            </div>
+                            <button class="button login__submit" type='submit'>
+                                <span class="button__text">Log In</span>
+                                <i class="button__icon fas fa-chevron-right"></i>
+                            </button>				
+                        </form>
+                        <div class="social-login">
+                            <button class="button login__submit">
+                                <NavLink to={"../signup"} class="button__text">Sign Up</NavLink>
+                            </button>
+                        </div>
                     </div>
-                    <div className="bottom">
-                      <button type='submit' className="button"><NavLink to='/dashboard/dash'>LogIn</NavLink></button>
-                      <NavLink to='../sign-up'>Create new account</NavLink>
-                    </div>
-                  </form>
+                    <div class="screen__background">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>		
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>		
                 </div>
-              </section>
-            </section>
+            </div>
             )}
       </div>
       );

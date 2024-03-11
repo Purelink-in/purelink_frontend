@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Main.css';
-import { NavLink } from 'react-router-dom';
+import { Navigate, Routes, Route,NavLink,Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import scrollReveal from 'scrollreveal';
 
 
-export default function Main() {
-
-    const videoRef = useRef(null);
+const Main = () => {
+        const videoRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -17,7 +16,6 @@ export default function Main() {
         if (entry.isIntersecting) {
           if (video.paused) {
             video.play().catch((error) => {
-              // Handle the error, e.g., show a play button for user interaction
               console.error('Failed to play the video:', error);
             });
           }
@@ -30,30 +28,30 @@ export default function Main() {
     const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
     observer.observe(video);
 
-    
     return () => {
-        observer.disconnect();
+      observer.disconnect();
     };
-}, []);
+  }, []);
 
-    useEffect(() => {
-        var scrollRevealInstance = scrollReveal({
-            reset: true,
-            distance: '50%',
-            duration: 2500,
-            delay: 100,
-            opacity: 0,
-        });
+  useEffect(() => {
+    var scrollRevealInstance = scrollReveal({
+      reset: false,
+      distance: '50%',
+      duration: 1500,
+      delay: 0,
+      opacity: 0,
+    });
 
-        scrollRevealInstance.reveal('.slide-up', { origin: 'bottom' });
-        scrollRevealInstance.reveal('.slide-down', { origin: 'top' });
-        scrollRevealInstance.reveal('.slide-left', { origin: 'left' });
-        scrollRevealInstance.reveal('.slide-right', { origin: 'right' });
-        scrollRevealInstance.reveal('.card', { delay: 100, easing: 'ease-out', interval: 100, scale: 1.5, distance: '0', duration: 500});
-    }, []);
+    scrollRevealInstance.reveal('.slide-up', { origin: 'bottom' });
+    scrollRevealInstance.reveal('.slide-down', { origin: 'top' });
+    scrollRevealInstance.reveal('.slide-left', { origin: 'left' });
+    scrollRevealInstance.reveal('.slide-right', { origin: 'right' });
+    scrollRevealInstance.reveal('.card', { delay: 100, easing: 'ease-out', interval: 100, scale: 1.5, distance: '0', duration: 500 });
+    scrollRevealInstance.reveal('.video', { delay: 0, easing: 'ease-out', scale: 0.8 });
+  }, []);
 
-  return (
-    <>
+    return (
+        <div>
         <Helmet>
             <title>pureLink</title>
         </Helmet>
@@ -61,7 +59,7 @@ export default function Main() {
         {/*---------------------- #hero--------------------------------*/}
         <section id="hero">
             <section className="wrapper">
-                <div className="left slide-up">
+                <div className="left slide-left">
                     <img src={require("./../assets/main-page-images/hero/hero-bg.png")} alt="" />
                 </div>
                 <div className="right">
@@ -69,16 +67,11 @@ export default function Main() {
                     <h1 className='slide-up'><span className="shapes"><img src={require('./../assets/main-page-images/hero/hero-shape.svg').default} alt="" /></span>SAVE</h1>
                     <h1 className='bg slide-up'>LIVE<span>HOOD.</span></h1>
                     <ul className='slide-down'>
-                        <li><NavLink to='want' className="button">Want Blood</NavLink></li>
+                        <li><NavLink to='want-blood' className="button">Want Blood</NavLink></li>
                         <li><NavLink to='signup' className="button">Donate Blood</NavLink></li>
                     </ul>
                 </div>
             </section>
-        </section>
-
-        {/*---------------------- #video--------------------------------*/}
-        <section id="videoContainer" onClick={() => videoRef.current.play()}>
-            <video id='video' ref={videoRef} src={(require('./../assets/main-page-images/bg-video/blood.mp4'))} loop  muted/>
         </section>
 
 
@@ -95,14 +88,13 @@ export default function Main() {
                 <section className="content">
                     <section className="wrapper">
                         <div className="left">
-                            <div className="item">
+                            <div className="item mt-0">
                                 <h4 className='slide-left'><span className="label"><img src={require("./../assets/main-page-images/hero/pureLink.svg").default} alt="" /></span>Donate Blood</h4>
                                 <p className='slide-right'>
                                     You can donate your blood to others through pureLink platform.
                                     Easily donate blood by clicking donate button and fill up the
                                     form. Donate your blood and save the life of others.
                                 </p>
-                                <a href="" className="button slide-right">Learn More</a>
                             </div>
                             <div className="item">
                                 <h4 className='slide-left'><span className="label"><img src={require("./../assets/main-page-images/hero/pureLink.svg").default} alt="" /></span>Want Blood</h4>
@@ -113,7 +105,6 @@ export default function Main() {
                                     can order the blood by clicking want blood option and fill up
                                     the form.
                                 </p>
-                                <a href="" className="button slide-right">Learn More</a>
                             </div>
                             <div className="item">
                                 <h4 className='slide-left'><span className="label"><img src={require("./../assets/main-page-images/hero/pureLink.svg").default} alt="" /></span>Register</h4>
@@ -122,7 +113,6 @@ export default function Main() {
                                     will help people when they want blood. You will be notified when
                                     someone with the same blood group as you requests for blood.
                                 </p>
-                                <a href="" className="button slide-right">Learn More</a>
                             </div>
                         </div>
                         <div className="right slide-right">
@@ -141,7 +131,6 @@ export default function Main() {
                                     perfomace.You can install dashboard by clicking the install app
                                     in your browser and use same app.
                                 </p>
-                                <a href="" className="button slide-right">Learn More</a>
                             </div>
                             <div className="item">
                                 <h4 className='slide-left'><span className="label"><img src={require("./../assets/main-page-images/hero/pureLink.svg").default} alt="" /></span>Notification</h4>
@@ -151,16 +140,12 @@ export default function Main() {
                                     can click Ready! for saving thier life.you will get data of that person
                                     through email and SMS after you click Ready!
                                 </p>
-                                <a href="" className="button slide-right">Learn More</a>
                             </div>
                             <div className="item">
-                                <h4 className='slide-left'><span className="label"><img src={require("./../assets/main-page-images/hero/pureLink.svg").default} alt="" /></span>Profile and History</h4>
+                                <h4 className='slide-left'><span className="label"><img src={require("./../assets/main-page-images/hero/pureLink.svg").default} alt="" /></span>Profile</h4>
                                 <p className='slide-right'>
-                                    Set up your profile In the dashboard and know your perfomance. You
-                                    can see your donation time details through checking history in
-                                    dashboard.
+                                    Set up your profile In the dashboard and know your perfomance
                                 </p>
-                                <a href="" className="button slide-right">Learn More</a>
                             </div>
                         </div>
                         <div className="right slide-left">
@@ -171,6 +156,11 @@ export default function Main() {
             </section>
       </section>
       <hr className="main-line" />
+
+      {/*---------------------- #video--------------------------------*/}
+      <section id="videoContainer" onClick={() => videoRef.current.play()} className='video'>
+            <video id='video' ref={videoRef} src={(require('./../assets/main-page-images/bg-video/blood.mp4'))} loop  muted/>
+        </section>
 
       <section id="restrictions">
         <h1 className="top slide-up"><span>Restrictions</span> You Must <span>Follow</span></h1>
@@ -184,7 +174,7 @@ export default function Main() {
                             <img src={require("./../assets/main-page-images/restrictions/age.svg").default} alt="image" />
                         </div>
                         <div className="content">
-                            <p>Individuals typically need to be between 18 and 65 years old to donate blood. The minimum age might vary in some states and blood banks.<NavLink to='restrictions'>more...</NavLink></p>
+                            <p>Individuals typically need to be between 18 and 60 years old to donate blood. The minimum age might vary in some states and blood banks.<a href='./restrictions#age'>more...</a></p>
                         </div>
                     </div>
                     <div className="card">
@@ -194,7 +184,7 @@ export default function Main() {
                             <img src={require("./../assets/main-page-images/restrictions/weight.png")} alt="image" />
                         </div>
                         <div className="content">
-                            <p>You should weigh at least 45 kg (99 pounds) to be eligible for blood donation...Donors should be in good general health and not suffering from any acute.<NavLink to='restrictions'>more...</NavLink></p>
+                            <p>You should weigh at least 50 kg to be eligible for blood donation...Donors should be in good general health and not suffering from any acute.<a href='./restrictions#weight'>more...</a></p>
                         </div>
                     </div>
                     <div className="card">
@@ -204,7 +194,7 @@ export default function Main() {
                             <img src={require("./../assets/main-page-images/restrictions/vaccin.svg").default} alt="image" />
                         </div>
                         <div className="content">
-                            <p>Individuals with HIV, hepatitis B or C, or other blood-borne infections are generally not allowed to donate blood...Depending on the vaccine <NavLink to='restrictions'>more...</NavLink></p>
+                            <p>Individuals with HIV, hepatitis B or C, or other blood-borne infections are generally not allowed to donate blood...Depending on the vaccine <a href='/restrictions#infections'>more...</a></p>
                         </div>
                     </div>
                     <div className="card hm-640">
@@ -214,7 +204,7 @@ export default function Main() {
                             <img src={require("./../assets/main-page-images/restrictions/pregnant.svg").default} alt="image" />
                         </div>
                         <div className="content">
-                            <p>Pregnant and breastfeeding women are usually not eligible for blood donation.<NavLink to='restrictions'>more...</NavLink></p>
+                            <p>Pregnant and breastfeeding women are usually not eligible for blood donation.<a href='/restrictions#pregnancy'>more...</a></p>
                         </div>
                     </div>
 
@@ -225,7 +215,7 @@ export default function Main() {
                             <img src={require("./../assets/main-page-images/restrictions/travel.png")} alt="image" />
                         </div>
                         <div className="content">
-                            <p>Recent travel to certain malaria-endemic areas may disqualify a donor for a specific period...Individuals engaged in high-risk behaviors such as intravenous drug use.<NavLink to='restrictions'>more...</NavLink></p>
+                            <p>Recent travel to certain malaria-endemic areas may disqualify a donor for a specific period...Individuals engaged in high-risk behaviors such as intravenous drug use.<a href='/restrictions#infections'>more...</a></p>
                         </div>
                     </div>
                     <div className="card">
@@ -235,7 +225,7 @@ export default function Main() {
                             <img src={require("./../assets/main-page-images/restrictions/ear-piercing.png")} alt="image" />
                         </div>
                         <div className="content">
-                            <p>There may be a deferral period after getting a tattoo, piercing, or other invasive procedures due to the risk of infection.<NavLink to='restrictions'>more...</NavLink></p>
+                            <p>There may be a deferral period after getting a tattoo, piercing, or other invasive procedures due to the risk of infection.<a href='/restrictions#infections'>more...</a></p>
                         </div>
                     </div>
                     <div className="card">
@@ -245,17 +235,26 @@ export default function Main() {
                             <img src={require("./../assets/main-page-images/restrictions/medicine.svg").default} alt="image" />
                         </div>
                         <div className="content">
-                            <p>Some medications may affect eligibility, so it's essential to disclose any prescription or over-the-counter medications you are taking to the blood bank staff.<NavLink to='restrictions'>more...</NavLink></p>
+                            <p>Some medications may affect eligibility, so it's essential to disclose any prescription or over-the-counter medications you are taking to the blood bank staff.<a href='/restrictions#medications'>more...</a></p>
                         </div>
                     </div>
-                    <div className="card">
+                    <div className="card ov-y-h">
                         <div className="caption">
                             <h1 className="mt">Hemoglobin Levels</h1>
                             <hr className="line" />
                             <img src={require("./../assets/main-page-images/restrictions/hemoglobin.png")} alt="image" />
                         </div>
                         <div className="content">
-                            <p>Your hemoglobin level should meet the specified criteria, usually around 12.5 to 13.5 grams per deciliter (g/dL) for men and 12.0 to 12.5 g/dL for women.<NavLink to='restrictions'>more...</NavLink></p>
+                            <p>Your hemoglobin level should meet the specified criteria, usually around 12.5 to 13.5 grams per deciliter (g/dL) for men and 12.0 to 12.5 g/dL for women.<a href='/restrictions#hemoglobin'>more...</a></p>
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="caption">
+                            <h1 className="mt">Click to Know more</h1>
+                            <hr className="line" />
+                        </div>
+                        <div className="content">
+                            <p>If you want to know more about the things which are restricted.<a href='/restrictions#age'>Click me..</a></p>
                         </div>
                     </div>
                 </div>
@@ -264,26 +263,26 @@ export default function Main() {
         </section>
         <hr className="line" />
 
-
-        <section id="connected">
-            <section className="wrapper">
-                <ul>
-                    <li className='card'>
-                        <img src={require("./../assets/main-page-images/connected/appolo.png")} alt="" />
-                    </li>
-                    <li className='card'>
-                        <img src={require("./../assets/main-page-images/connected/amrita.png")} alt="" />
-                    </li>
-                    <li className='card'>
-                        <img src={require("./../assets/main-page-images/connected/kims.png")} alt="" />
-                    </li>
-                    <li className='card'>
-                        <img src={require("./../assets/main-page-images/connected/vps.png")} alt="" />
-                    </li>
-                </ul>
-                <h2 className='slide-up'>We are associated with these hospitals</h2>
-            </section>
-        </section>
+       { // <section id="connected">
+           // <section className="wrapper">
+             //   <ul>
+               //     <li className='card'>
+                 //       <img src={require("./../assets/main-page-images/connected/appolo.png")} alt="" />
+                   // </li>
+                    //<li className='card'>
+                      //  <img src={require("./../assets/main-page-images/connected/amrita.png")} alt="" />
+                   // </li>
+                  //  <li className='card'>
+                     //   <img src={require("./../assets/main-page-images/connected/kims.png")} alt="" />
+                   // </li>
+                  //  <li className='card'>
+                 //       <img src={require("./../assets/main-page-images/connected/vps.png")} alt="" />
+                  //  </li>
+               // </ul>
+             //   <h2 className='slide-up'>We are associated with these hospitals</h2>
+           // </section>
+     //   </section> %}
+       }
         
         <div className="social" id='footer'>
             <footer>
@@ -292,6 +291,10 @@ export default function Main() {
                         <div className="item large">
                             <h1><a href=""><img src="../../logo.svg" alt=""/></a></h1>
                             <h3 className='slide-left'>Donate Blood To Be A Hero</h3>
+                            <ul className='slide-down'>
+                                <li><NavLink to='want-blood' className="button">Want Blood</NavLink></li>
+                                <li><NavLink to='signup' className="button">Donate Blood</NavLink></li>
+                            </ul>
                             </div>
                         <div className="item slide-right">
                             <h3>On This Page</h3>
@@ -299,30 +302,22 @@ export default function Main() {
                                 <li><NavLink to='/' className={({isActive}) => isActive ? "active" : ""}>Home</NavLink></li>
                                 <li><NavLink to='/about' className={({isActive}) => isActive ? "active" : ""}>About</NavLink></li>
                                 <li><NavLink to='/restrictions' className={({isActive}) => isActive ? "active" : ""}>Restrictions</NavLink></li>
-                                <li><NavLink to='/terms' className={({isActive}) => isActive ? "active" : ""}>Terms&Condition</NavLink></li>
+                                <li><NavLink to='/terms&conditions' className={({isActive}) => isActive ? "active" : ""}>Terms&Condition</NavLink></li>
                             </ul>
                         </div>
                         <div className="item slide-right">
                             <h3>About Us</h3>
                             <ul>
-                                <li><a href="">Our Story</a></li>
-                                <li><a href="">Meet the Team</a></li>
-                                <li><a href="">Careers</a></li>
+                                <li><NavLink to='/about'>Our Mission</NavLink></li>
+                                <li><NavLink to='/about'>How we work</NavLink></li>
+                                <li><NavLink to='/about'>Aim</NavLink></li>
                             </ul>
                         </div>
-                        <div className="item slide-right">
-                            <h3>Stay up to date</h3>
-                            <p>Register to save life.</p>
-                            <form action="">
-                                <input type="email" placeholder="Your email address" required/>
-                                    <button type="submit"><img src={require("../assets/images/send.svg").default} alt="Submit"/></button>
-                                    </form>
-                                </div>
-                            </section> 
-                            {/* <!-- (footer > .wrapper > .top) --> */}
+                        </section> 
+                        {/* <!-- (footer > .wrapper > .top) --> */}
                     <section className="bottom">
                         <p className="left slide-left">
-                            2024 &copy;PureLink Donors - All rights reserved - <a href="">Privacy Policy</a>
+                             Copyrights &copy; 2024-2025 purelink.in. All Rights Reserved
                         </p>
                         <div className="social slide-right">
                             <ul>
@@ -339,5 +334,7 @@ export default function Main() {
                     </footer>
                     {/* <!-- (footer) --> */}
         </div>
-    </>
-)}
+    </div>
+    )
+} 
+export default Main;

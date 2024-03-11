@@ -5,13 +5,44 @@ import './Form.css';
 import { Helmet } from 'react-helmet';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import { NavLink } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import {useGlobalState,GlobalStateProvider} from './../GlobalContext';
 const Signup = () => {
+
+   const navigate = useNavigate();
+    const {loggedIn,setLoggedIn,error,setError} = useGlobalState();
     const ShowAlert2 = () => {
         Swal.fire({
             title:"Signed up successfully",
         }
         )
     }
+    const ShowAlert3 = () => {
+        Swal.fire({
+            title:"Invalid Details",
+        }
+        )
+    }
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post('https://api.purelink.in/login/', { phone_no: formData.phone_no, password: formData.password });
+            const { token, name, phone, district, blood_group } = response.data;
+
+            localStorage.setItem('token', token);
+            localStorage.setItem('name', name);
+            localStorage.setItem('phoneNo', phone);
+            localStorage.setItem('districtId', district.id);
+            localStorage.setItem('bloodGroup', blood_group);
+
+            ShowAlert2();
+            setLoggedIn(true);
+        } catch (error) {
+            console.error('Error setting up the request:', error);
+            ShowAlert3();
+        }
+    };
+
+
     const [formData, setFormData] = useState({
         name: '',
         blood_group: '',
@@ -28,20 +59,34 @@ const Signup = () => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Ensure the district value is a number
+         if (formData.has_tattoo === 'yes') {
+        console.log('User has a tattoo. Form not submitted.');
+        const SweetAlert4 = () => {
+            Swal.fire({
+                title:"User has a tatoo.Form not submitted",
+            })
+        }
+        SweetAlert4();
+        return;
+ 
+    }
         const district = parseInt(formData.district, 10);
-        // Create a new object with the updated district value
         const updatedFormData = { ...formData, district };
         try {
             console.log(formData); 
-            const response = await axios.post('http://localhost:8000/donors/', formData);
+            const response = await axios.post('https://api.purelink.in/donors/', formData);
             console.log(response.data);
             ShowAlert2();
-            
+            handleLogin();
+            setTimeout(() => {  console.log(''); }, 2000);
+            navigate('/dashboard/dash');
+
+
         } catch (error) {
             console.error('Error signing up:', error);
+            ShowAlert3();
         }
-    };
+    }; 
     return (
         <div>
             <Helmet>
@@ -69,7 +114,11 @@ const Signup = () => {
                                         </label>
                                         <label className="phone">
                                             Phone Number:
-                                            <input type="number" name="phone_no" id="phone" value={formData.phone_no} onChange={handleChange} required />
+                                            <input type="number" name="phone_no" id="phone" value={formData.phone_no} onChange={(e) => {
+                                                if (e.target.value.length <= 10) {
+                                                    handleChange(e);
+                                                }
+                                            }} required  onInvalid={(e) => e.target.setCustomValidity('Invalid Phone Number')}/>
                                         </label>
                                         <label className="blood">
                                             Blood Group:
@@ -87,7 +136,11 @@ const Signup = () => {
                                         </label>
                                         <label className="age2 age-label">
                                             Age:
-                                            <input type="number" name="age" id="age" min={18} max={65} value={formData.age} onChange={handleChange} required />
+                                            <input type="number" name="age" id="age" min={18} max={60} value={formData.age} onChange={(e) => {
+                                                if (e.target.value.length <= 2) {
+                                                    handleChange(e);
+                                                }
+                                            }} required />
                                         </label>
                                     </div>
                                     <div className="form-field">
@@ -111,6 +164,7 @@ const Signup = () => {
                                             <label className="district">
                                                 District:
                                                 <select name="district" id="district" value={formData.district} onChange={handleChange} required>
+                                                `<option defaultChecked>Select District</option>
                                                     <option value="1">Kollam</option>
                                                     <option value="2">Ernakulam</option>
                                                     <option value="3">Kozhikode</option>

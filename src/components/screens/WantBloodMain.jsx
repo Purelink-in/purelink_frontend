@@ -18,6 +18,7 @@ export default function WantBloodMain() {
     hospital : '',
     district:'',
     no_of_units_here : '',
+    type : '',
 });
 const handleChange = (e) => {
   const { name, value } = e.target;
@@ -31,7 +32,7 @@ const handleSubmit = async (e) => {
 
   try {
       console.log(updatedFormData); 
-      const response = await axios.post('http://127.0.0.1:8000/want/', updatedFormData);
+      const response = await axios.post('https://api.purelink.in/want/', updatedFormData);
       console.log(response.data);
       ShowAlert();
   } catch (error) {
@@ -75,12 +76,21 @@ const handleSubmit = async (e) => {
                     <option value="O-">O-</option>
                   </select>
 
-                    <input type="number" placeholder="Enter phone number" name="phone_no" value={formData.phone_no} id="tel" required onChange={handleChange}/>
+                    <input type="number" placeholder="Enter phone number" name="phone_no" value={formData.phone_no} id="tel" required onChange={(e) => {
+                    if (e.target.value.length <= 10) {
+                      handleChange(e);
+                    }
+                    }}/>
+
                     <input type="text" placeholder="Enter hospital name" value={formData.hospital} name="hospital" id="hos" required onChange={handleChange}/>
 
                   </div>
                   <div className="form-field">
-                    <input type="number" placeholder="Enter your Age"  name="age" id="age" required value={formData.age} onChange={handleChange}/>
+                    <input type="number" placeholder="Enter your Age"  name="age" id="age" required value={formData.age} onChange={(e) => {
+                      if (e.target.value.length <= 2) {
+                        handleChange(e);
+                      }                  
+                    }} min={18} max={60}/>
                     <select
                     name="no_of_units_here"
                     id="unit"
@@ -117,6 +127,11 @@ const handleSubmit = async (e) => {
                         <option value="12">Wayanad</option>
                         <option value="13">Kannur</option>
                         <option value="14">Kasargod</option>
+                    </select>
+                    <select name="type" value={formData.blood_type} id="io" required onChange={handleChange}>
+                    <option defaultValue>Request Type</option>
+                    <option value="blood">Blood</option>
+                    <option value="platelets">Platelets</option>
                     </select>
                   </div>
                   </div>

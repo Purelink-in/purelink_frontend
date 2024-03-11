@@ -45,6 +45,9 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+#bold{
+    font-weight: bold;
+}
 :root{
     --bg--: #5e3fe3;
     --bg2--: #f1f1f1;
@@ -73,6 +76,13 @@ hr.main-line{
     justify-content: space-between;
 }
 
+div.button{
+    display: none;
+}
+#restrictions .wrapper .item .cards .card:last-child{
+    display: none;
+}
+
 /*-------------------------- (header)----------------------------- */
 header{
     background: #fff;
@@ -85,15 +95,16 @@ header .res-full-bg{
 }
 header .left{
     background: var(--bg2--);
-    padding: 20px 25px;
+    padding: 15px 25px;
     border-radius: 25px;
-    width: 92%;
+    width: 100%;
 }
 header .left .content{
     display: flex;
     justify-content: space-between;
     padding-right: 8%;
     align-items: center;
+    height: 60px;
 }
 header .left .content h1.left{
     display: inline-block;
@@ -114,13 +125,13 @@ header .left .content nav.right ul{
     justify-content: space-between;
 }
 header .left .content nav.right ul li{
-    margin-right: 17px;
+    margin-right: 50px;
 }
 header .left .content nav.right ul li:nth-child(4){
     font-family: 'Poppins', sans-serif;    
     font-size: 17px;
     color: #000;
-    opacity: 0.8;
+    opacity: 1;
     cursor: pointer;
 }
 header .left .content nav.right ul li:nth-child(4):hover{
@@ -128,6 +139,11 @@ header .left .content nav.right ul li:nth-child(4):hover{
 }
 header .left .content nav.right ul li:last-child{
     margin-right: 0;
+}
+header .left .content nav.right ul li:nth-child(4) a,
+    header .left .content nav.right ul li:last-child a{
+    font-weight: 800;
+    color: #5e3fe3;
 }
 header .left .content nav.right ul li a{
     font-family: 'Poppins', sans-serif;
@@ -150,43 +166,48 @@ header .left .content nav.right ul li span img{
     width: 100%;
     height: 100%;
 }
-header .left .content nav.right ul li a.active{
-    opacity: 1;
-}
-header .right{
+header .left .content nav.right ul li{
+    text-align: center;
+    align-items: center ;
     display: flex;
-    align-items: center;
 }
-header .right a.user{
+header .left .content nav.right ul li a.active{
+    background: #0e0e0e;
+    color: white;
+    border-radius: 2rem;
     display: inline-block;
-    padding: 12px 12px;
-    border-radius: 100px;
-    border: 2px solid var(--bg--);
-    cursor: pointer;
+    padding: 10px 20px;
 }
-header .right a.user img{
-    display: block;
+header nav.right span.hamburger{
+    display: none;
+    width: 40px;
+}
+header nav.right span.hamburger img{
     width: 100%;
+    transition: all ease-in-out 0.5s;
 }
-header .right span.hamburger{
-    display: inline-block;
-    width: 50px;
+header nav.right span.hamburger img:last-child{
     display: none;
 }
-header .right span.hamburger img{
-    width: 100%;
+header nav.right span.hamburger.active img:first-child{
+    display: none;
+}
+header nav.right span.hamburger.active img:last-child{
+    display: block;
 }
 nav.mobile{
     width: 100%;
     position: absolute;
-    background: var(--bg2--);
+    background: #fff;
     max-height: 0;
     transition: all 0.5s ease-in-out;
-    z-index: 2;
+    z-index: 1;
 }
 nav.mobile.active{
-    max-height: 260px;
+    max-height: 310px;
     transition: all 0.5s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 30px;
 }
 nav.mobile ul{
     display: flex;
@@ -233,6 +254,7 @@ nav.mobile ul li span img{
 nav.mobile ul li a.active{
     opacity: 1;
 }
+
 
 /*-------------------------- (#hero)----------------------------- */
 #hero{
@@ -317,9 +339,12 @@ nav.mobile ul li a.active{
 
 /*-------------------------- (#hero)----------------------------- */
 #videoContainer{
-    display: inline-block;
+    display: flex;
     padding: 0px 0;
-    width: 100%;
+    width: 85%;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 #videoContainer video{
     display: block;
@@ -334,7 +359,6 @@ nav.mobile ul li a.active{
 #service section.content .wrapper{
     display: flex;
     justify-content: space-between;
-    padding-left: 60px;
   }
   #sevice section.top {
     margin-bottom: 40px;
@@ -369,8 +393,14 @@ nav.mobile ul li a.active{
     width: 50%;
   }
   #service section.content div.item {
-    margin-bottom: 35px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    padding: 30px 35px;
+    border-radius: 20px;
+    padding-left: 70px;
   }
+  #service section.dashboard div.item{
+    padding-left: 0 !important;
+  } 
   #service section.content div.item h4 {
     display: flex;
     align-items: center;
@@ -412,7 +442,6 @@ nav.mobile ul li a.active{
   #service section.dashboard .wrapper{
     flex-direction: row-reverse;
     padding-left: 0;
-    padding-right: 60px;
   }
   #service section.dashboard .wrapper .right{
     width: 60%;
@@ -448,6 +477,7 @@ nav.mobile ul li a.active{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    overflow-y: hidden;
 }
 #restrictions .wrapper .item .cards .card{
     border: 3px solid rgba(255, 255, 255, 0.45);
@@ -461,6 +491,12 @@ nav.mobile ul li a.active{
     text-align: center;
     border-radius: 6px;
     transition: all 0.5s ease-in-out;
+}
+#restrictions .wrapper .item .cards .card.ov-y-h{
+    overflow-y: hidden;
+}
+#restrictions .wrapper .item .cards .card:last-child{
+    overflow-y: hidden;
 }
 #restrictions .wrapper .item .cards .card h1{
     font-family: 'inter-medium';
@@ -557,29 +593,30 @@ background: linear-gradient(180deg, #B1B9FF 5.43%, #FF4F79 100%);
 }
 
 
-@media all and (max-width: 1280px) {
-    header .left{
-        margin-right: 20px;
-    }
-}
 @media all and (max-width: 980px) {
     header{
-        padding: 20px 0;
+        padding: 0;
     }
     header .res-full-bg{
         background: var(--bg2--);
         border-radius: 0;
-        padding-right: 25px;
     }
     header .left{
         background: none;
     }
-    header .right a.user{
-        border-radius: 15px;
-        margin-right: 15px;
-    }
-    header .right span.hamburger{
+    header nav.right span.hamburger{
         display: inline-block;
+    }
+    header .left .content{
+        padding-right: 0;
+    }
+    header .left .content nav.right ul{
+        display: none;
+    }
+    #hero{
+        background: url('./../assets/main-page-images/hero/hero-res-bg.png') no-repeat;
+        background-size: cover;
+        margin-bottom: 0 !important;
     }
     #hero .wrapper{
         flex-direction: column;
@@ -588,9 +625,21 @@ background: linear-gradient(180deg, #B1B9FF 5.43%, #FF4F79 100%);
     }
     #hero .wrapper .left{
         margin-right: 0;
+        display: none;
+    }
+    #hero .wrapper .right{
+        text-align: center;
+        overflow-y: hidden;
+    }
+    #hero .wrapper .right h1{
+        margin-top: 20px;
     }
     #hero .wrapper .right h1:nth-child(2){
         justify-content: center;
+    }
+    #hero .wrapper .right h1:nth-child(3){
+        border-radius: 20px;
+        background: none;
     }
     #hero .wrapper .right ul{
         justify-content: center;
@@ -598,14 +647,48 @@ background: linear-gradient(180deg, #B1B9FF 5.43%, #FF4F79 100%);
     #restrictions .wrapper .item .cards .card{
         width: 45%;
     }
-    header .left .content nav.right{
-        display: none;
-    }
     #hero .wrapper .right ul li a.button{
-        font-size: 25px;
+        background: #000000;
+        color: #ffffff;
+        border: 2px solid #000;
+    }
+    #hero .wrapper .right ul li:last-child a.button{
+        background: none;
+        color: #fff;
+        border: 2px solid #000;
+    }
+    #hero .wrapper .right ul li:first-child a.button:hover{
+        background: none;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+    }
+    #hero .wrapper .right ul li:last-child a.button:hover{
+        background: #fff;
+        border: 2px solid #fff;
+        color: #000;
+        transition: all 0.3s ease-in-out;
+    }
+    #service{
+        padding: 0;
+    }
+    #service .top{
+        background-image: url('./../assets/main-page-images/hero/bg.png');
+        background-size: cover;
+        padding-top: 190px;
+        margin-top: 0px !important;
     }
     #service section.content .wrapper{
-        padding-right: 60px;
+    }
+    #service section.content div.item {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding-left: 35px;
+        margin: 70px;
+    }
+    #service section.content div.item.mt-0{
+        margin-top: 0;
+    }
+    #service section.dashboard div.item{
+        padding-left: 35px !important;
     }
     #service section.content div.right{
         display: none;
@@ -613,9 +696,23 @@ background: linear-gradient(180deg, #B1B9FF 5.43%, #FF4F79 100%);
     #service section.content .left{
         width: 100%;
     }
+    #service section.content .left div.item:nth-child(3){
+        display: none;
+    }
+    #service section.dashboard .left div.item:nth-child(1){
+        display: none;
+    }
+    #service section.dashboard .left div.item:nth-child(3){
+        display: none;
+    }
+    #service section.dashboard .left div.item:nth-child(2){
+        margin-top: 0;
+    }
+    #service section.dashboard{
+        margin-top: 0;
+    }
     #service section.dashboard .wrapper{
-        padding-left: 60px;
-        padding-right: 60px;
+        padding-right: 0;
     }
     #connected .wrapper ul li:last-child{
         padding: 30px 60px;
@@ -628,17 +725,21 @@ background: linear-gradient(180deg, #B1B9FF 5.43%, #FF4F79 100%);
     }
 }
 @media all and (max-width: 640px) {
+
     header .left .content h1.left{
-        width: 90px;
+        width: 100px;
     }
-    #hero .wrapper .left{
-        display: none;
-    }   
     #hero .wrapper .right h1{
         font-size: 70px;
     }
     #hero .wrapper .right ul li a.button{
         font-size: 20px;
+    }
+    #restrictions{
+        padding-bottom: 0;
+    }
+    #restrictions .wrapper{
+        padding-bottom: 0;
     }
     #service section.top h3,
     #restrictions h1.top{
@@ -647,8 +748,66 @@ background: linear-gradient(180deg, #B1B9FF 5.43%, #FF4F79 100%);
     #restrictions .wrapper .item .cards .card{
         width: 100%;
     }
+    #service section.content div.item{
+        margin: 50px 50px;
+    }
+    #service section.content div.item h4 span.label img{
+        width: 80px;
+    }
+    #service section.content div.item h4 span.label{
+        padding-right: 10px;
+    }
+    #restrictions div.item div.cards div.card:nth-child(2),#restrictions div.item div.cards div.card:nth-child(5),#restrictions div.item div.cards div.card:nth-child(7),#restrictions div.item div.cards div.card:nth-child(8){
+        display: none;
+    }
+    #restrictions .wrapper .item .cards .card:last-child{   
+        display: block;
+    }
+    #connected{
+        padding-top: 70px;
+    }
+    div.button{
+        display: flex;
+        width: 75%;
+        margin: 0 80px;
+        height: 200px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0px 4px 9px 1px rgba(0, 0, 0, 0.20);
+    }
+    div.button a{
+        background-color: #fff;
+        font-family: 'inter-medium';
+        color: var(--bg--);
+        margin-bottom: 10px;
+        font-size: 20px;
+        
+    }
+    footer section.top div.item.large{
+        margin-right: 10px;
+    }
+    footer{
+        margin: 20px 0px;
+    }
+    footer section.top div.item h3{
+        margin-bottom: 50px;
+    }
 }
 @media all and (max-width: 480px) {
+    .wrapper .left .item h4 span.label {
+        display: none !important;
+    }
+    #hero .wrapper .right ul li a.button{
+        background: #000;
+        color: #fff;
+    }
+    #service section.content div.item h4 span.label img{
+        width: 80px;
+    }
+    #service section.content div.item h4 span.label{
+        padding-right: 10px;
+    }
     #hero .wrapper .right h1{
         font-size: 50px;
     }
@@ -669,8 +828,17 @@ background: linear-gradient(180deg, #B1B9FF 5.43%, #FF4F79 100%);
     #connected .wrapper ul li:first-child{
         padding: 20px 60px;
     }
+    #service section.content div.item:last-child{
+        margin-bottom: 30px;
+    }
 }
 @media all and (max-width: 360px) {
+    #service section.content div.item h4 span.label img{
+        width: 55px;
+    }
+    #service section.content div.item h4 span.label{
+        padding-right: 20px;
+    }
     #service section.top div.arrow img{
         width: 70px;
     }
@@ -684,9 +852,6 @@ background: linear-gradient(180deg, #B1B9FF 5.43%, #FF4F79 100%);
     #service section.content div.item h4 span.label{
         padding: 5px 5px 0px;
     }
-    #service section.content div.item h4 span.label img{
-        width: 60px;
-    }
     #service section.content div.item p{
         font-size: 15px;
     }
@@ -696,14 +861,32 @@ background: linear-gradient(180deg, #B1B9FF 5.43%, #FF4F79 100%);
     #connected .wrapper h2{
         font-size: 18px;
     }
+    #service section.content div.item{
+        margin: 10px;
+        margin-bottom: 30px;
+    }
+    #connected .wrapper ul li img{
+        width: 100%;
+    }
 }
-@media all and (max-width: 320px) {
-    
+@media all and (max-width: 580px) {
+    #connected .wrapper ul{
+        justify-content: center;
+    }
+    #connected .wrapper ul li:first-child{
+        padding: 20px 60px;
+    }
+    #connected .wrapper ul li{
+        width: 100%;
+        justify-content: center;
+    }
 }
 /*---------- (footer) -----------*/
 footer{
     padding: 120px 0;
     background: #28147e;
+    z-index: 3;
+    position: relative;
 }
 footer .wrapper{
     padding: 0 50px;
@@ -718,6 +901,23 @@ footer section.top div.item{
 }
 footer section.top div.item.large{
     width: 32%;
+}
+footer section.top div.item.large ul{
+    display: flex;
+}
+footer section.top div.item.large ul li{
+    margin-right: 10px;
+}
+footer section.top div.item.large ul li:last-child{
+    margin-right: 0;
+}
+footer section.top div.item.large ul li a{
+    display: inline-block;
+    padding: 15px 20px;
+    background: #000;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 50px;
 }
 footer section.top div.item:last-child{
     width: 28%;
@@ -867,5 +1067,8 @@ footer section.bottom div.social ul li a img{
     }
 	footer section.bottom{
         margin-top: 80px;
+    }
+    footer section.top div.item.large ul li a{
+        font-size: 8px;
     }
 }

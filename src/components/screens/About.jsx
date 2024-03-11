@@ -15,9 +15,9 @@ export default function About() {
 
     useEffect(() => {
         var scrollRevealInstance = scrollReveal({
-            reset: true,
+            reset: false,
             distance: '50%',
-            duration: 2500,
+            duration: 1500,
             delay: 100,
             opacity: 0,
         });
@@ -30,7 +30,7 @@ export default function About() {
 
   return (
     <div>
-        {location.pathname === '/about' && <MainNavFixed />}
+        {/* {location.pathname === '/about' && <MainNavFixed />} */}
 
       <section id="container">
             <section className="content-container">
@@ -60,7 +60,7 @@ export default function About() {
                             <li><b>Safety:</b> Your well-being is our top priority. We adhere to strict safety protocols to guarantee the quality and purity of the donated blood.</li>
                             <li><b>Community Impact:</b> By participating in our services, you become part of a compassionate community dedicated to making a positive impact on lives.</li>
                         </ul>
-                        <div className="box-container slide-up">
+                        <div className="box-container slide-down">
                             <span className="box">
                                 <h1 className="img">
                                     <img src={require("./../assets/main-page-images/about/save-life.svg").default} alt="image" />
@@ -92,8 +92,7 @@ export default function About() {
                         <ul>
                             <li className={({isActive}) => isActive ? "active" : ""}>
                                 <b>Compassion:</b> We believe in the power of empathy and
-                                kindness, fostering a culture where every life matters, an
-                                d every donation counts.
+                                kindness, fostering a culture where every life matters, and every donation counts.
                             </li>
                             <li>
                                 <b>Reliability:</b>We uphold the highest standards of
@@ -211,37 +210,33 @@ export default function About() {
                         <div className="item large">
                             <h1><a href=""><img src="../../logo.svg" alt=""/></a></h1>
                             <h3 className='slide-left'>Donate Blood To Be A Hero</h3>
+                            <ul className='slide-down'>
+                                <li><NavLink to='../want-blood' className="button">Want Blood</NavLink></li>
+                                <li><NavLink to='../signup' className="button">Donate Blood</NavLink></li>
+                            </ul>
                             </div>
                         <div className="item slide-right">
                             <h3>On This Page</h3>
                             <ul>
-                                <li><NavLink to='/' className={({isActive}) => isActive ? "active" : ""}>Home</NavLink></li>
-                                <li><NavLink to='/about' className={({isActive}) => isActive ? "active" : ""}>About</NavLink></li>
-                                <li><NavLink to='/restrictions' className={({isActive}) => isActive ? "active" : ""}>Restrictions</NavLink></li>
-                                <li><NavLink to='/terms' className={({isActive}) => isActive ? "active" : ""}>Terms&Condition</NavLink></li>
+                                <li><NavLink to='../' className={({isActive}) => isActive ? "active" : ""}>Home</NavLink></li>
+                                <li><NavLink to='../about' className={({isActive}) => isActive ? "active" : ""}>About</NavLink></li>
+                                <li><NavLink to='../restrictions' className={({isActive}) => isActive ? "active" : ""}>Restrictions</NavLink></li>
+                                <li><NavLink to='../terms&conditions' className={({isActive}) => isActive ? "active" : ""}>Terms&Condition</NavLink></li>
                             </ul>
                         </div>
                         <div className="item slide-right">
                             <h3>About Us</h3>
                             <ul>
-                                <li><a href="">Our Story</a></li>
-                                <li><a href="">Meet the Team</a></li>
-                                <li><a href="">Careers</a></li>
+                                <li><a href="#our_missions">Our Mission</a></li>
+                                <li><a href='#how_we_work'>How we work</a></li>
+                                <li><a href="#aim">Aim</a></li>
                             </ul>
                         </div>
-                        <div className="item slide-right">
-                            <h3>Stay up to date</h3>
-                            <p>Register to save life.</p>
-                            <form action="">
-                                <input type="email" placeholder="Your email address" required/>
-                                    <button type="submit"><img src={require("../assets/images/send.svg").default} alt="Submit"/></button>
-                                    </form>
-                                </div>
                             </section> 
                             {/* <!-- (footer > .wrapper > .top) --> */}
                     <section className="bottom">
                         <p className="left slide-left">
-                            2024 &copy;PureLink Donors - All rights reserved - <a href="">Privacy Policy</a>
+                             Copyrights &copy; 2024-2025 purelink.in. All Rights Reserved
                         </p>
                         <div className="social slide-right">
                             <ul>
@@ -262,10 +257,10 @@ export default function About() {
     </div>
   )}
 
-function MainNavFixed() {
-    return (
-      <header style={{ display: 'block', position: 'fixed', width: '100%', top: 0, padding: '0 0',  zIndex: 2 }}>
-        <MainNav />
-      </header>
-    );
-  }
+// function MainNavFixed() {
+//     return (
+//       <header style={{ display: 'block', position: 'fixed', width: '100%', top: 0, padding: '0 0',  zIndex: 2 }}>
+//         <MainNav />
+//       </header>
+//     );
+//   }

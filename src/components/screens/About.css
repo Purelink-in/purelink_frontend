@@ -72,6 +72,8 @@ hr.main-line{
     justify-content: space-between;
 }
 
+x
+
 #introduction,
 #our_missions,
 #our_values,
@@ -103,10 +105,27 @@ hr.main-line{
 #container .content-container .wrapper .top h1{
     font-family: 'inter-bold';
     font-size: 45px;
+    margin: 50px 0px 10px;
     color: var(--h1--);
+}
+.wrapper h3 {
+    max-width: 800px !important;
 }
 #container .content-container .wrapper .top h1 span{
     color: #5e3fe3;
+}
+#container .content-container .wrapper h3{
+    margin-bottom: 80px !important;
+}
+#container .content-container .wrapper ul{
+    margin-bottom: 88px !important;
+}
+#container .content-container .wrapper .item h1{
+    margin-bottom: 20px !important;
+}
+#container .content-container .wrapper .item h4{
+    margin-bottom: 20px !important;
+    margin-top: 30px;
 }
 #container .content-container .wrapper ul.below{
     display: flex;
@@ -235,13 +254,14 @@ hr.main-line{
     width: 20%;
     background: var(--bg2--);
     position: fixed;
-    height: 100vh;
+    height: 450px;
     right: 0;
     transition: all ease-in-out 0.5s;
-    z-index: 2;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .side-bar .wrapper{
-    
+
 }
 .side-bar .wrapper .top{
     padding: 40px 20px 20px;

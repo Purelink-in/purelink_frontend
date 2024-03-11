@@ -51,16 +51,47 @@ export default function Profile() {
 const name_of_user = localStorage.getItem('name')  
 const number = localStorage.getItem('phoneNo')
 const blood_group = localStorage.getItem('bloodGroup')
+const district = localStorage.getItem('districtId');
+let district_name;
+if (district == "1") {
+ district_name = "Kollam";
+} else if (district == "2") {
+ district_name = "Ernakulam";
+} else if (district == "3") {
+  district_name = "Kozhikode";
+} else if (district == "4") {
+  district_name = "Thiruvananthapuram";
+} else if (district == "5") {
+  district_name = "Alappuzha";
+} else if (district == "6") {
+  district_name = "Pathanamthitta";
+} else if (district == "7") {
+  district_name = "Kottayam";
+} else if (district == "8") {
+  district_name = "Idukki";
+} else if (district == "9") {
+  district_name = "Thrissur";
+} else if (district == "10") {
+  district_name = "Palakkad";
+} else if (district == "11") {
+  district_name = "Malappuram";
+} else if (district == "12") {
+  district_name = "Wayanad";
+} else if (district == "13") {
+  district_name = "Kannur";
+} else if (district == "14") {
+  district_name = "Kasargod";
+}
     return (
     <>
         <div className="over"></div>
         <div className="mb-top-header">
             <ul>
             <li><h1><img src={require("./../assets/main-page-images/hero/pureLink.svg").default} alt="images" /></h1></li>
-            <li><div className="mb-top-circle"></div></li>
+            <li><div className="mb-top-circle">{name_of_user.charAt(0)}</div></li>
             </ul>
         </div>
-        <div className="mb-circle"></div>
+        <div className="mb-circle">{name_of_user.charAt(0)}</div>
         <div className='profile'>
             <div className="info">
                 <div className="left">
@@ -76,7 +107,7 @@ const blood_group = localStorage.getItem('bloodGroup')
                 <h1>{name_of_user}</h1>
                 <span>{number}</span>
                 <span>{blood_group}</span>
-                <a href="#" className="button">View Profile</a>
+                <span>{district_name}</span>
             </div>
             <div className="social-links">
                 <ul>
