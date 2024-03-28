@@ -15,7 +15,7 @@ export default function Dashboard() {
     const RemainingRequests = requests.slice(0,3);
 
     useEffect(() => {
-        axios.get('https://api.purelink.in/want')
+        axios.get('https://vercel-api.purelink.in/want')
             .then(response => {
                 const filteredRequests = response.data.filter(req =>
                     req.blood_group == localStorage.getItem('bloodGroup') &&
@@ -37,7 +37,7 @@ export default function Dashboard() {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const response = await axios.get('https://api.purelink.in/want');
+                const response = await axios.get('https://vercel-api.purelink.in/want');
                  const filtering = response.data.filter(req =>
                     req.blood_group == localStorage.getItem('bloodGroup') &&
                     req.district == localStorage.getItem('districtId')
