@@ -1,0 +1,429 @@
+@font-face {
+    font-family: 'inter-black';
+    src: url(./../assets/font/static/Inter-Black.ttf);
+}
+@font-face {
+    font-family: 'inter-bold';
+    src: url(./../assets/font/static/Inter-Bold.ttf);
+}
+@font-face {
+    font-family: 'inter-extra-bold';
+    src: url(./../assets/font/static/Inter-ExtraBold.ttf);
+}
+@font-face {
+    font-family: 'inter-extra-light';
+    src: url(./../assets/font/static/Inter-ExtraLight.ttf);
+}
+@font-face {
+    font-family: 'inter-light';
+    src: url(./../assets/font/static/Inter-Light.ttf);
+}
+@font-face {
+    font-family: 'inter-medium';
+    src: url(./../assets/font/static/Inter-Medium.ttf);
+}
+@font-face {
+    font-family: 'inter-regular';
+    src: url(./../assets/font/static/Inter-Regular.ttf);
+}
+@font-face {
+    font-family: 'inter-semi-bold';
+    src: url(./../assets/font/static/Inter-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'inter-thin';
+    src: url(./../assets/font/static/Inter-Thin.ttf);
+}
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+:root{
+    --bg--: #5e3fe3;
+    --bg2--: #f1f1f1;
+    --h1--: #000;
+    --p--: #5B5B5B;
+}
+ul,ol{
+    list-style: none;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+hr.line{
+    width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+    opacity: 0.3;
+}
+hr.main-line{
+    margin: 0 10%;
+    border-bottom: 1px solid #dbdbdb;
+    opacity: 0.3;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+x
+
+#introduction,
+#our_missions,
+#our_values,
+#how_we_work,
+#aim{
+    overflow-x: visible;
+    scroll-margin-top: 140px;
+}
+#get_involved{
+    overflow-x: visible;
+    scroll-margin-top: 230px;
+}
+#container{
+    display: flex;
+}
+#container .content-container{
+    width: 80%;
+    background: #fff;
+    margin-top: -10px;
+}
+#container .content-container .wrapper{
+    padding: 40px;
+}
+#container .content-container .wrapper .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+#container .content-container .wrapper .top h1{
+    font-family: 'inter-bold';
+    font-size: 45px;
+    margin: 50px 0px 10px;
+    color: var(--h1--);
+}
+.wrapper h3 {
+    max-width: 800px !important;
+}
+#container .content-container .wrapper .top h1 span{
+    color: #5e3fe3;
+}
+#container .content-container .wrapper h3{
+    margin-bottom: 80px !important;
+}
+#container .content-container .wrapper ul{
+    margin-bottom: 88px !important;
+}
+#container .content-container .wrapper .item h1{
+    margin-bottom: 20px !important;
+}
+#container .content-container .wrapper .item h4{
+    margin-bottom: 20px !important;
+    margin-top: 30px;
+}
+#container .content-container .wrapper ul.below{
+    display: flex;
+    margin-bottom: 50px;
+}
+#container .content-container .wrapper ul.below li{
+    margin-right: 5px;
+}
+#container .content-container .wrapper ul.below li:last-child{
+    margin-right: 0;
+}
+#container .content-container .wrapper ul.below li a.button{
+    display: inline-block;
+    padding: 17px 28px;
+    background: var(--bg--);
+    border: 2px solid var(--bg--);
+    color: #fff;
+    font-family: 'inter-medium';
+    font-size: 17px;
+    border-radius: 30px;
+}
+#container .content-container .wrapper ul.below li:last-child a.button{
+    background: none;
+    border: 2px solid var(--bg--);
+    color: #000;
+}
+#container .content-container .wrapper ul.below li:first-child a.button:hover{
+    background: #fff;
+    color: #000;
+    transition: all 0.1s ease-in-out;
+}
+#container .content-container .wrapper ul.below li:last-child a.button:hover{
+    background: var(--bg--);
+    color: #fff;
+    transition: all 0.1s ease-in-out;
+}
+#container .content-container .wrapper h3{
+    font-family: 'inter-medium';
+    font-size: 25px;
+    width: 89%;
+    margin-top: 5px;
+    color: var(--h1--);
+    margin-bottom: 40px;
+}
+#container .content-container .wrapper .item{
+    margin-bottom: 100px;
+}
+#container .content-container .wrapper .item:last-child{
+    margin-bottom: 0;
+}
+#container .content-container .wrapper .item.value{
+
+}
+#container .content-container .wrapper .item.value ul{
+    list-style: circle;
+}
+#container .content-container .wrapper .item.value ul li{
+    color: var(--p--);
+    font-family: 'inter-medium';
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+#container .content-container .wrapper .item.value ul li b{
+    font-weight: 700;
+    color: var(--p--);
+}
+#container .content-container .wrapper .item h1{
+    font-family: 'inter-bold';
+    font-size: 40px;
+    color: var(--bg--);
+    margin-bottom: 5px;
+}
+#container .content-container .wrapper .item h4{
+    font-family: 'inter-medium';
+    font-size: 25px;
+    color: var(--h1--);
+    margin-bottom: 30px;
+}
+#container .content-container .wrapper .item p{
+    font-family: 'inter-medium';
+    font-size: 16px;
+    color: var(--p--);
+    /* margin-bottom: 20px; */
+}
+#container .content-container .wrapper .item .pl{
+    padding-left: 50px;
+}
+#container .content-container .wrapper .item div.box-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+#container .content-container .wrapper .item div.box-container span.box{
+    display: inline-flex;
+    padding: 40px;
+    width: 45%;
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+#container .content-container .wrapper .item div.box-container span.box h1.img{
+    width: 100%;
+    display: inline-block;
+    margin-right: 20px;
+}
+#container .content-container .wrapper .item div.box-container span.box h1.img img{
+    width: 100%;
+    display: block;
+}
+#container .content-container .wrapper .item div.box-container span.box p{
+    color: #000;
+}
+#container .content-container .wrapper .item div.box-container span.box a.button{
+    display: inline-block;
+    padding: 10px;
+    color: #5e3fe3;
+    border: 1px solid #5e3fe3;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+#container .content-container .wrapper .item div.box-container span.box a.button:hover{
+    background: var(--bg--);
+    color: #fff;
+}
+
+.side-bar{
+    width: 20%;
+    background: var(--bg2--);
+    position: fixed;
+    height: 450px;
+    right: 0;
+    transition: all ease-in-out 0.5s;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.side-bar .wrapper{
+
+}
+.side-bar .wrapper .top{
+    padding: 40px 20px 20px;
+}
+.side-bar .wrapper .top h1{
+    font-size: 20px;
+    color: var(--h1--);
+    font-family: 'inter-bold';
+    margin-bottom: 5px;
+}
+.side-bar .wrapper .top hr.line{
+    width: 100%;
+    border-bottom: 1px solid var(--h1--);
+    opacity: 1;
+}
+.side-bar .wrapper ul{
+
+}
+.side-bar .wrapper ul li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.side-bar .wrapper ul li span.bar{
+    display: inline-block;
+    height: 30px;
+    margin-right: 27px;
+    opacity: 0;
+}
+.side-bar .wrapper ul li span.bar img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.side-bar .wrapper ul li a{
+    font-size: 16px;
+    font-family: 'inter-medium';
+    color: var(--p--);
+}
+.side-bar .wrapper ul li a:hover{
+    color: var(--h1--);
+}
+.side-bar .wrapper ul li:hover span.bar{
+    opacity: 1;
+}
+.side-bar .wrapper ul li.active span{
+    opacity: 1;
+}
+.side-bar .wrapper ul li.active a{
+    color: var(--h1--);
+}
+
+@media all and (max-width: 980px){
+    #container .content-container{
+        width: 100%;
+    }
+    header.width{
+        width: 90%;
+    }
+    .side-bar{
+        width: 30%;
+        right: -80%;
+        transform: scale(0);
+    }
+    .side-bar.active {
+        right: 0;
+        transform: scale(1);
+    }
+    .menu {
+        display: block;
+    }
+    #container .content-container .wrapper .top ul.top{
+        display: none;
+    }
+    #container .content-container .wrapper h3{
+        width: 100%;
+    }
+    #container .content-container .wrapper h3{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    #container .content-container .wrapper .item div.box-container span.box{
+        width: 80%;
+    }
+
+}
+@media all and (max-width: 768px){
+    .side-bar{
+        width: 40%;
+    }
+    #container div.over.active{
+        height: 600vh;
+    }
+    #container .content-container .wrapper .item div.box-container span.box p{
+        font-size: 14px;
+    }
+    #container .content-container .wrapper h3{
+        font-size: 23px;
+    }
+    #container .content-container .wrapper .item div.box-container span.box{
+        flex-direction: column;
+    }
+    #container .content-container .wrapper .item div.box-container span.box h1.img{
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 60%;
+    }
+
+}
+
+@media all and (max-width: 640px){
+    header.width{
+        width: 88%;
+    }
+    .side-bar{
+        width: 50%;
+    }
+}
+@media all and (max-width: 480px){
+    .side-bar{
+        display: none;
+    }
+    #container .content-container .wrapper .top h1{
+        font-size: 35px;
+    }
+    #container .content-container .wrapper h3{
+        font-size: 17px;
+    }
+}
+@media all and (max-width: 390px){
+    header .content ul {
+        display: none;
+    }
+    #container .content-container .wrapper .top h1{
+        font-size: 30px;
+    }
+    #container .content-container .wrapper h3{
+        font-size: 13px;
+    }
+    #container .content-container .wrapper ul.below{
+        display: flex;
+        margin-bottom: 100px;
+    }
+    #container .content-container .wrapper ul.below li a.button{
+        font-size: 10px;
+    }
+    #container .content-container .wrapper .item h1{
+        font-size: 30px;
+    }
+    #container .content-container .wrapper .item h4{
+        font-size: 20px;
+    }
+    #container .content-container .wrapper .item p{
+        font-size: 13px;
+    }
+    #container .content-container .wrapper .item .pl{
+        padding-left: 0;
+    }
+    #container .content-container .wrapper .item div.box-container span.box p{
+        font-size: 11px;
+    }
+    #container .content-container .wrapper .item h4{
+        font-size: 14px;
+    }
+}
