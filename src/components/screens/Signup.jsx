@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './../css/form.css'
+import { Helmet } from 'react-helmet';
 
 export default function Signup() {
     const [page, setPage] = useState(0);
@@ -146,6 +147,10 @@ export default function Signup() {
   
     return (
       <div className="app-container">
+        <Helmet>
+                <title>PureLink | Register</title>
+        </Helmet>
+
         <div id="register">
           <div className="register-left">
             <img src={require('./../assets/static/images/logo/full-logo.svg').default} alt={require('./../assets/static/images/logo/full-logo.svg').default} className="register-logo" />
