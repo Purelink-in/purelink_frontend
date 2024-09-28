@@ -5,6 +5,7 @@ import { NavLink , Navigate, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 import { BASE_URL } from '../axiosConfig';
 import Swal from 'sweetalert2'
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const {userData,updateUserData,loading} = useContext(UserContext)
@@ -52,6 +53,10 @@ const Login = () => {
 
     return (
       <div className='bodyoflogin'>
+        <Helmet>
+                <title>PureLink | Login</title>
+        </Helmet>
+
         {userData && !loading ? (
           <div>
             <Navigate to="/dashboard/dash"/>

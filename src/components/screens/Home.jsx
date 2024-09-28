@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import './../css/home.css'
 import { NavLink } from 'react-router-dom'
+import { Helmet } from 'react-helmet';
 
 export default function Home() {
     const videoRef = useRef(null);
@@ -32,6 +33,10 @@ export default function Home() {
 
   return (
     <div>
+        <Helmet>
+                <title>PureLink</title>
+        </Helmet>
+
       <section id="hero">
         <section className="wrapper">
             <div className='top'>
