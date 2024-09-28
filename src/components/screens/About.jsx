@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './About.css';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import MainNav from '../includes/MainNav';
 import scrollReveal from 'scrollreveal';
 
 export default function About() {
@@ -203,56 +202,6 @@ export default function About() {
             </section>
         </section>
         
-        <div className="social" id='footer' style={{position: 'relative', zIndex: 2}}>
-            <footer>
-                <section className="wrapper">
-                    <section className="top">
-                        <div className="item large">
-                            <h1><a href=""><img src={require("./../assets/main-page-images/logo_official.png")} alt=""/></a></h1>
-                            <h3 className='slide-left'>Donate Blood To Be A Hero</h3>
-                            <ul className='slide-down'>
-                                <li><NavLink to='../want-blood' className="button">Want Blood</NavLink></li>
-                                <li><NavLink to='../signup' className="button">Donate Blood</NavLink></li>
-                            </ul>
-                            </div>
-                        <div className="item slide-right">
-                            <h3>On This Page</h3>
-                            <ul>
-                                <li><NavLink to='../' className={({isActive}) => isActive ? "active" : ""}>Home</NavLink></li>
-                                <li><NavLink to='../about' className={({isActive}) => isActive ? "active" : ""}>About</NavLink></li>
-                                <li><NavLink to='../restrictions' className={({isActive}) => isActive ? "active" : ""}>Restrictions</NavLink></li>
-                                <li><NavLink to='../terms&conditions' className={({isActive}) => isActive ? "active" : ""}>Terms&Condition</NavLink></li>
-                            </ul>
-                        </div>
-                        <div className="item slide-right">
-                            <h3>About Us</h3>
-                            <ul>
-                                <li><a href="#our_missions">Our Mission</a></li>
-                                <li><a href='#how_we_work'>How we work</a></li>
-                                <li><a href="#aim">Aim</a></li>
-                            </ul>
-                        </div>
-                            </section> 
-                            {/* <!-- (footer > .wrapper > .top) --> */}
-                    <section className="bottom">
-                        <p className="left slide-left">
-                             Copyrights &copy; 2024-2025 purelink.in. All Rights Reserved
-                        </p>
-                        <div className="social slide-right">
-                            <ul>
-                                <li><a href=""><img src={require("../assets/images/dash-profile/instagram.png")} alt="Instagram"/></a></li>
-                                <li><a href=""><img src={require("../assets/images/dash-profile/whatsapp.png")} alt="Whatsapp"/></a></li>
-                                <li><a href=""><img src={require("../assets/images/dash-profile/telegram.png")} alt="telegram"/></a></li>
-                                <li><a href=""><img src={require("../assets/images/dash-profile/discord.png")} alt="discord"/></a></li>
-                                </ul>
-                                </div>
-                            </section> 
-                            {/* <!-- (footer > .wrapper > .bottom) --> */}
-                        </section>
-                        {/* <!-- (footer > .wrapper) --> */}
-                    </footer>
-                    {/* <!-- (footer) --> */}
-        </div>
 
     </div>
   )}

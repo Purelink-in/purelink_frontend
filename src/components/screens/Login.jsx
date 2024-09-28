@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import './Form.css'
+import './../css/form.css'
 import { NavLink , Navigate, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 import { BASE_URL } from '../axiosConfig';
@@ -57,41 +57,37 @@ const Login = () => {
             <Navigate to="/dashboard/dash"/>
           </div>
           ) : (
-            <div className="login-container">
-                <div className="screen">
-                    <div className="screen__content">
-                        <form className="login" onSubmit={handleSubmit}>
-                            <div className="login__field">
-                                <i className="login__icon fas fa-user"></i>
-                                <input type="text" className="login__input" placeholder="Email"  onChange={(e) => {setUsername(e.target.value);}} value={username} required/>
-                            </div>
-                            <div className="login__field">
-                                <i className="login__icon fas fa-lock"></i>
-                                <input type="password" className="login__input" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} value={password} required />
-                            </div>
-                            <button className="button login__submit" type='submit'>
-                                <span className="button__text">Log In</span>
-                                <i className="button__icon fas fa-chevron-right"></i>
-                            </button>				
-                        </form>
-                        <div className="social-login">
-                            <NavLink to="../signup" style={{width:'100%'}}>
-                                <button className="button login__submit">
-                                Sign Up
-                                </button>
-                            </NavLink>
+            <section id="login">
+                <section className="left">
+                    <h1 className="top"><img src={require('./../assets/static/images/logo/full-logo.svg').default} alt={require('./../assets/static/images/logo/full-logo.svg').default} /></h1>
+                    <div className="wrapper">
+                        <div className="container">
+                            <h1>Welcome to PureLink</h1>
+                            <p>Please enter your details</p>
+                            <form action="">
+                                <label htmlFor="email">Email</label>
+                                <input className='input' type="email" name="Email" id="email" placeholder='Enter your email address' />
+                                <label htmlFor="password">Password</label>
+                                <input className='input' type="password" name="Password" id="password" placeholder='Enter your password' />
+                                <div className="flex">
+                                    <div className="left">
+                                        <input type="checkbox" id='remember' />
+                                        <label htmlFor="remember">Remember for 30 days</label>
+                                    </div>
+                                    <div className="right">
+                                        <NavLink>Forgot Password</NavLink>
+                                    </div>
+                                </div>
+                                <button type='submit'>Signin</button>
+                            </form>
+                            <h5>Don’t have an account? <NavLink to='/register'>Register</NavLink></h5>
                         </div>
                     </div>
-                    <div className="screen__background">
-                        <span className="screen__background__shape screen__background__shape4"></span>
-                        <span className="screen__background__shape screen__background__shape3"></span>		
-                        <span className="screen__background__shape screen__background__shape2"></span>
-                        <span className="screen__background__shape screen__background__shape1">
-                            <img src={require('./../assets/main-page-images/logo_official.png')} alt="logo" />
-                        </span>
-                    </div>		
-                </div>
-            </div>
+                </section>
+                <section className="right">
+                    <img src={require('./../assets/static/images/auth/login-image.svg').default} alt={require('./../assets/static/images/auth/login-image.svg').default} />
+                </section>
+            </section>
             )}
       </div>
       );
