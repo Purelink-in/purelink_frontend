@@ -9,18 +9,19 @@ import Nav from './components/includes/Nav';
 import Dashboard from './components/screens/Dashboard';
 import Profile from './components/includes/Profile';
 import Notification from './components/screens/Notification';
-import Main from './components/screens/Main';
 import WantBloodMain from './components/screens/WantBloodMain';
-import MainNav from './components/includes/MainNav';
+import Header from './components/includes/Header';
+import Footer from './components/includes/Footer';
 import About from './components/screens/About';
 import Signup from './components/screens/Signup';
 import Login from './components/screens/Login';
-import Restriction from './components/screens/Restriction';
+import Restrictions from './components/screens/Restrictions';
 import HashLoader from "react-spinners/HashLoader";
 import NotFound from './components/screens/NotFound';
 import Terms from './components/screens/Terms';
 import HospitalRequest from './components/screens/HospitalRequest';
 import PrivateRoutes from './components/screens/PrivateRoutes';
+import Home from './components/screens/Home';
 
 export const UserContext = React.createContext();
 
@@ -76,16 +77,27 @@ function App() {
             ) : (
                 <UserContext.Provider value={{ userData, updateUserData, loading}}>
                     <Router>
-                        <Routes>
-                            <Route path="/" element={<MainNav />}>
-                                <Route index element={<Main />} />
-                                <Route path="/about" element={<About />} />
-                                <Route path="/restrictions" element={<Restriction />} />
-                                <Route path="/want-blood" element={<WantBloodMain />} />
-                                <Route path="signup" element={<Signup />} />
-                            </Route>
-                            <Route path="/login" element={<Login />} />
-                            <Route path="/terms&conditions" element={<Terms />} />
+                        <div>
+                            <Routes>
+                                <Route path="/login" element={<Login />} />
+                                <Route path="/register" element={<Signup />} />
+                                <Route
+                                    path="*"
+                                    element={
+                                    <>
+                                        <Header />
+                                        <Routes>
+                                        <Route path="/" element={<Home />} />
+                                        <Route path="/about" element={<About />} />
+                                        <Route path="/restrictions" element={<Restrictions />} />
+                                        </Routes>
+                                        <Footer />
+                                    </>
+                                    }
+                                />
+                            </Routes>
+                        </div>
+                        {/* <Routes>
                             <Route
                                 path='/dashboard/*'
                                 element={
@@ -104,7 +116,7 @@ function App() {
                                     )} />
                                 }
                             />
-                        </Routes>
+                        </Routes> */}
                     </Router>
                 </UserContext.Provider>
             )}
