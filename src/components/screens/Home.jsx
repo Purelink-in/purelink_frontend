@@ -45,7 +45,7 @@ export default function Home() {
                 <p>Blood donation is a simple act that can save up to three lives and make a profound difference in someone's journey towards recovery</p>
                 <div className="button">
                     <NavLink to='request'>Request Blood</NavLink>
-                    <NavLink to='donate'>Donate Blood</NavLink>
+                    <NavLink to='register'>Donate Blood</NavLink>
                 </div>
             </div> {/* #hero .wrapper .top */}
             <div className="bottom">
