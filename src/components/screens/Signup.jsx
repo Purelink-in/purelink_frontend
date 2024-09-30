@@ -14,7 +14,6 @@ export default function Signup() {
       address: "",
       district: "",
       bloodGroup: "",
-      bloodPreference: "",
       lastDonation: "",
       hasTattoo: "",
     });
@@ -49,7 +48,6 @@ export default function Signup() {
       } else if (page === 2) {
         return (
           formData.bloodGroup &&
-          formData.bloodPreference &&
           formData.lastDonation &&
           formData.hasTattoo
         );
@@ -317,21 +315,26 @@ export default function Signup() {
                     <div className="sub">Please enter your details</div>
                     <div className="input-container">
                       <label htmlFor='bloodGroup' className="input-title">Blood group</label>
-                      <input
+                      <select
                        id='bloodGroup'
                         type="text"
                         name="bloodGroup"
                         placeholder="Enter your blood group"
                         value={formData.bloodGroup}
                         onChange={handleChange}
-                      />
-                    </div>
-                    <div className="input-container">
-                      <label htmlFor='preference' className="input-title">Blood preference</label>
-                      <select id='preference' name="bloodPreference" value={formData.bloodPreference} onChange={handleChange}>
+                      >
                         <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
                       </select>
                     </div>
+                
                     <div className="input-container">
                       <label htmlFor='lastDonation' className="input-title">Last donation</label>
                       <input
