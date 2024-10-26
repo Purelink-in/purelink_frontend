@@ -30,10 +30,10 @@ export default function HospitalRequest() {
         }
     }, [userData]);
 
-    const handleAccept = (id) => {
+    const handleAccept = (uuid) => {
         axios.post(`${BASE_URL}/requests/accept_request/`, 
         {
-            'request_id': id,
+            'request_id': uuid,
             'join' : 'true',
         },
         {
@@ -81,14 +81,14 @@ export default function HospitalRequest() {
                 ) : (
                     requests.map((request, index) => (
                         <div className="content" key={index}>
-                            <p>Id:<span> {request.id}</span></p>
+                            <p>Id:<span> {request.uuid}</span></p>
                             <p>Hospital Avenue:<span> {request.hospital_name}</span></p>
                             <p>Wanted count:<span> {request.wanted_count}</span></p>
                             <p>Blood Group:<span> {request.blood_group}</span></p>
                             <p>Type of donation:<span> {request.type_of_donation}</span></p>
                             <p>Date and Time:<span> {new Date(request.datetime).toLocaleString()}</span></p>
                             <ul>
-                                <li><button onClick={() => handleAccept(request.id)}> Accept!</button></li>
+                                <li><button onClick={() => handleAccept(request.uuid)}> Accept!</button></li>
                             </ul>
                         </div>
                     ))
