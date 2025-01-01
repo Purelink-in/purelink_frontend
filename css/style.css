@@ -30,10 +30,11 @@ h3 {
     color: #333;
     margin: 0;
 }
-h3.purple {
+
+h3 .purple {
     color: #5e3fe3;
-    display: inline;
-}
+} 
+
 @media (min-width: 768px) {
     main {
         flex-direction: row;
@@ -50,5 +51,8 @@ h3.purple {
     }
     h3 {
         font-size: 24px;
+    }
+    h3.purple {
+        margin-left: 0;
     }
 }
